@@ -25,7 +25,7 @@ public class ServicoConversor {
 			servico.setData_contratacao(converterData(servicoResource.getContratacao()));
 			servico.setData_entrega(converterData(servicoResource.getEntrega()));
 			servico.setValor(converterValor(servicoResource.getValor()));
-			servico.setResponsavel(converterLong(servicoResource.getResponsavel()));
+			servico.setResponsavel(servicoResource.getResponsavel());
 			servico.setStatus(servicoResource.getStatus());
 			return servico;
 		} catch (Exception e) {

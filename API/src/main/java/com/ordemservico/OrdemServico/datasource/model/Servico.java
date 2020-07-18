@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -35,7 +36,9 @@ public class Servico implements Serializable{
 	private LocalDate data_entrega;
 	private double valor;
 	private String Status;
-	private Long responsavel;
+	
+	@ManyToOne
+	private Responsavel responsavel;
 	
 	 
 	public String getStatus() {
@@ -44,10 +47,10 @@ public class Servico implements Serializable{
 	public void setStatus(String status) {
 		Status = status;
 	}
-	public Long getResponsavel() {
+	public Responsavel getResponsavel() {
 		return responsavel;
 	}
-	public void setResponsavel(Long responsavel) {
+	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
 	}
 	

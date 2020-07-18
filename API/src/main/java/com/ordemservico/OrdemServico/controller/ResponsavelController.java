@@ -42,7 +42,7 @@ public class ResponsavelController {
 		return serviceBuscarPorId.buscarPorId(id);
 	}
 	
-	@PostMapping(path = "/responsavel/")
+	@PostMapping(path = "/responsavel")
 	public void salvar(@RequestBody ResponsavelResource responsavel) {
 		serviceCadastro.cadastro(responsavel);
 	}

@@ -3,6 +3,7 @@ package com.ordemservico.OrdemServico.resource.model;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ordemservico.OrdemServico.datasource.model.Responsavel;
 
 
 public class ServicoResource implements Serializable{
@@ -40,7 +41,7 @@ public class ServicoResource implements Serializable{
 	private String valor;
 	
 	@JsonProperty("responsavel")
-	private String responsavel;
+	private Responsavel responsavel;
 	
 	@JsonProperty("status")
 	private String status;
@@ -54,11 +55,11 @@ public class ServicoResource implements Serializable{
 	}
 	
 
-	public String getResponsavel() {
+	public Responsavel getResponsavel() {
 		return responsavel;
 	}
 
-	public void setResponsavel(String responsavel) {
+	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
 	}
 
