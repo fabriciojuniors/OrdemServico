@@ -1,7 +1,6 @@
 package com.ordemservico.OrdemServico.datasource.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +20,36 @@ public class Responsavel implements Serializable {
 	private Long id;
 	
 	private String nome;
-	private LocalDate idade;
+	private String email;
+	private String telefone;
+	private char sexo;
+	private String endereco;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public char getSexo() {
+		return sexo;
+	}
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -35,12 +62,7 @@ public class Responsavel implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public LocalDate getIdade() {
-		return idade;
-	}
-	public void setIdade(LocalDate idade) {
-		this.idade = idade;
-	}
+
 	
 	public Responsavel() {
 		

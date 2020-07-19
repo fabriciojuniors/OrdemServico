@@ -1,0 +1,14 @@
+.tittle-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-top: 1%;
+}
+
+.btn-confirmar {
+    float: right;
+    border-radius: 0;
+}
+
+.preencher {
+    border-color: red;
+}

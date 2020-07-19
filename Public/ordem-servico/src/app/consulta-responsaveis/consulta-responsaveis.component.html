@@ -1,0 +1,26 @@
+<div id="tb-Responsaveis" class="container" *ngIf="(responsaveis.length > 0); else nenhum">
+    <table class="table table-sm table-hover">
+        <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>#</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let responsavel of responsaveis">
+                <td>{{ responsavel.id }}</td>
+                <td>{{ responsavel.nome }}</td>
+                <td>{{ responsavel.email }}</td>
+                <td>
+                    <a style="margin-right: 10%;" (click)="editarResponsavel(responsavel.id)"> <i class="fas fa-pen"></i> </a>
+                    <a (click)="excluirResponsavevel(responsavel.id)"> <i class="fas fa-trash-alt"></i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #nenhum>
+    <div class="alert alert-danger container" role="alert">
+        Nenhum responsável cadastrado.
+    </div>
+</ng-template>

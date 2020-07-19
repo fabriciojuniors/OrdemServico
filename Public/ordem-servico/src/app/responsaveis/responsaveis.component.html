@@ -1,0 +1,56 @@
+<!-- Include Menu -->
+<app-menu-superior></app-menu-superior>
+<!-- Include Menu -->
+
+<div class="container">
+    <h3 class="tittle-text">Cadastro - Responsáveis</h3>
+
+    <div id="form-responsavel">
+        <div class="row">
+            <div class="col-md-1">
+                <label for="">ID</label>
+                <input type="text" readonly class="form-control" id="id">
+            </div>
+            <div class="col-md-11">
+                <label for="">Nome</label>
+                <input type="text" class=" form-control" id="nome">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <label for="">E-mail</label>
+                <input type="text" class="form-control" id="email">
+            </div>
+            <div class="col-md-6">
+                <label for="">Telefone</label>
+                <input type="text" class="form-control" id="telefone">
+            </div>
+            <div class="col-md-12">
+                <label for="">Endereço</label>
+                <input type="text" class="form-control" id="endereco">
+            </div>
+        </div>
+
+        <label for="" style="margin-right: 1%;">Sexo:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sexoOpt" checked id="Masculino" value="M">
+            <label class="form-check-label" for="Masculino">
+        Masculino
+      </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sexoOpt" id="Feminino" value="F">
+            <label class="form-check-label" for="Feminino">
+        Feminino
+      </label>
+        </div>
+    </div>
+
+    <button id="confirmar" class="btn btn-success btn-confirmar" (click)="confirmar()">Confirmar</button>
+</div>
+
+<div style="margin-top: 4%;">
+    <app-consulta-responsaveis></app-consulta-responsaveis>
+</div>

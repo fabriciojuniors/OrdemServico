@@ -1,7 +1,5 @@
 package com.ordemservico.OrdemServico.service;
 
-import java.time.LocalDate;
-
 import org.springframework.stereotype.Component;
 
 import com.ordemservico.OrdemServico.ResponsavelException.ResponsavelResourceException;
@@ -15,18 +13,18 @@ public class ResponsavelConversor {
 	
 		try {
 			Responsavel responsavel = new Responsavel();
-			LocalDate idade =  checkIdade(responsavelResource.getIdade());
-			
-			responsavel.setIdade(idade);
 			responsavel.setNome(responsavelResource.getNome());
+			responsavel.setEmail(responsavelResource.getEmail());
+			responsavel.setSexo(responsavelResource.getSexo());
+			responsavel.setEndereco(responsavelResource.getEndereco());
+			responsavel.setTelefone(responsavelResource.getTelefone());
+			
+			
 			return responsavel;
 		} catch (Exception e) {
 			throw new ResponsavelResourceException("Falha ao converter as informações.");
 		}
 	}
 	
-	private LocalDate checkIdade(String idade) {
-		return LocalDate.parse(idade);
-	}
 	
 }

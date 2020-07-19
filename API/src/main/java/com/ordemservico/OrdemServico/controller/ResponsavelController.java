@@ -3,10 +3,12 @@ package com.ordemservico.OrdemServico.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,7 @@ import com.ordemservico.OrdemServico.service.BuscarResponsavelPorIDServiceImpl;
 import com.ordemservico.OrdemServico.service.CadastroResponsavelServiceImpl;
 
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(value = "/api")
 public class ResponsavelController {
@@ -50,5 +53,11 @@ public class ResponsavelController {
 	@DeleteMapping(path = "/responsavel/{id}")
 	public void deleteId(@PathVariable(name = "id", required = true)Long id) throws ResponsavelNotFound {
 		serviceBuscarPorId.DeletePorId(id);
+	}
+	
+	@PutMapping(path = "/responsavel/{id}")
+	public void atualizarId(@PathVariable(name = "id", required = true) Long id, @RequestBody ResponsavelResource responsavelResource) throws ResponsavelNotFound {
+		serviceCadastro.atualizar(responsavelResource, id);
+		
 	}
 }
