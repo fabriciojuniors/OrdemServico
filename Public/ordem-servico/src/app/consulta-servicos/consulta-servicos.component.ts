@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-consulta-servicos',
   templateUrl: './consulta-servicos.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaServicosComponent implements OnInit {
 
-  constructor() { }
+  constructor() {  }
   servicos = [];
   ngOnInit(): void {
     fetch("http://localhost:8080/api/servicos")

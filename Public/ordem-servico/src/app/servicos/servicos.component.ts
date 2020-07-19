@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-servicos',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
   responsaveis = [];
   ngOnInit(): void {
     fetch("http://localhost:8080/api/responsaveis",{
@@ -22,6 +23,36 @@ export class ServicosComponent implements OnInit {
       });
     }).catch((e)=>{
       console.log("Erro ao conectar com API. \n" + e);
+    })
+
+    this.route.params.subscribe(parametros =>{
+      if(parametros['id']){
+        fetch("http://localhost:8080/api/servico/"+parametros['id'],{
+          headers: {'Content-type': 'application/json'}
+        })
+        .then((response)=>{
+          return response.text();
+        }).then((text)=>{
+          let servico = JSON.parse(text);
+          (document.querySelector("#id") as HTMLInputElement).value = servico.id;
+          (document.querySelector("#cliente") as HTMLInputElement).value = servico.cliente;
+          (document.querySelector("#email") as HTMLInputElement).value = servico.email;
+          (document.querySelector("#endereco") as HTMLInputElement).value = servico.endereco;
+          (document.querySelector("#telefone") as HTMLInputElement).value = servico.telefone;
+          (document.querySelector("#produto") as HTMLInputElement).value = servico.produto;
+          (document.querySelector("#marca") as HTMLInputElement).value = servico.marca_produto;
+          (document.querySelector("#tipo") as HTMLInputElement).value = servico.tipo_produto;
+          (document.querySelector("#responsavel") as HTMLInputElement).value = servico.responsavel.id;
+          (document.querySelector("#valor") as HTMLInputElement).value = servico.valor;
+          (document.querySelector("#contratacao") as HTMLInputElement).value = servico.data_contratacao;
+          (document.querySelector("#entrega") as HTMLInputElement).value = servico.data_entrega;
+          (document.querySelector("#cliente") as HTMLInputElement).readOnly = true;
+          (document.querySelector("#produto") as HTMLInputElement).readOnly = true;
+          (document.querySelector("#contratacao") as HTMLInputElement).readOnly = true;
+        }).catch((e)=>{
+          console.log("Erro ao conectar com API. \n" + e);
+        })
+      }
     })
   }
 
@@ -91,8 +122,25 @@ export class ServicosComponent implements OnInit {
         entrega: entrega,
         status: status
       }
+    }else{
+      url = "http://localhost:8080/api/servico/"+id;
+      metodo = "PUT"
+      dados = {
+        id:id,
+        cliente: cliente,
+        email: email,
+        endereco: endereco,
+        telefone:telefone,
+        produto: produto,
+        marca: marca,
+        tipo: tipo,
+        responsavel: {id: responsavel},
+        valor: valorConvertido,
+        contratacao: contratacao,
+        entrega: entrega,
+        status: status
+      }
     }
-    
     fetch(url,{
       method: metodo,
       body: JSON.stringify(dados),

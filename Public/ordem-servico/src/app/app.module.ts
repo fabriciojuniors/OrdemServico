@@ -12,6 +12,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServicosComponent } from './servicos/servicos.component';
 import { ConsultaServicosComponent } from './consulta-servicos/consulta-servicos.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +30,10 @@ import { ConsultaServicosComponent } from './consulta-servicos/consulta-servicos
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

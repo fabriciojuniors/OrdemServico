@@ -8,17 +8,17 @@
             <div class="col-md-4">
                 <label for="">Responsável</label>
                 <select style="font-size: 12px;" id="responsavel" class="form-control">
-                    <option value="#">Selecione</option>
-                </select>
+          <option value="#">Selecione</option>
+        </select>
             </div>
             <div class="col-md-4">
                 <label for="">Status</label>
                 <select style="font-size: 12px;" id="status" class="form-control">
-                    <option value="1">Em aberto</option>
-                    <option value="2">Finalizado</option>
-                    <option value="3">Entregue</option>
-                    <option value="4">Cancelado</option>
-                </select>
+          <option value="1">Em aberto</option>
+          <option value="2">Finalizado</option>
+          <option value="3">Entregue</option>
+          <option value="4">Cancelado</option>
+        </select>
             </div>
             <div class="col-md-4">
                 <label for="">Contratação</label>
@@ -39,7 +39,7 @@
                 <th>Contratação</th>
                 <th>Responsável</th>
                 <th>Status</th>
-                <th>#</th>
+                <th style="text-align: center;">#</th>
             </thead>
             <tbody>
                 <tr *ngFor="let servico of servicos">
@@ -49,6 +49,9 @@
                     <td>{{ servico.data_contratacao }}</td>
                     <td>{{ servico.responsavel.nome }}</td>
                     <td>{{ retonarStatus(servico.status) }}</td>
+                    <td style="text-align: center;">
+                        <a [routerLink]="['/servicos/id/'+servico.id]" title="Editar"><i class="fas fa-pen"></i></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

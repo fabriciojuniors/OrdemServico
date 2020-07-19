@@ -14,6 +14,7 @@ const routes: Routes = [
     children: [
       {path: 'responsaveis', component: ResponsaveisComponent},
       {path: 'servicos', component: ServicosComponent},
+      {path: 'servicos/id/:id', component: ServicosComponent},
       {path: 'servicos/consulta', component: ConsultaServicosComponent},
       {path: 'index', component: InicioComponent}
     ]

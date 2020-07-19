@@ -20,12 +20,37 @@ public class CadastroServicoServiceImpl {
 	@Autowired
 	private ServicoConversor service;
 	
+	@Autowired
+	private BuscarServicoPorID buscarServicoPorID;
+	
 	public void cadastro(ServicoResource servicoResource) {
 		try {
 			Servico servico = service.conversor(servicoResource);
 			servicoRepository.saveAndFlush(servico);
 		} catch (ServicoResourceException e) {
 			LOG.error("Erro ao salvar servico. \n" + e.getMessage(),e);
+		}
+	}
+	
+	public void atualizar(Long id, ServicoResource servicoResource) {
+		try {
+			Servico servico = buscarServicoPorID.buscarPorId(id);
+			servico.setCliente(servicoResource.getNome());
+			servico.setData_contratacao(service.converterData(servicoResource.getContratacao()));
+			servico.setData_entrega((service.converterData(servicoResource.getEntrega())));
+			servico.setEmail(servicoResource.getEmail());
+			servico.setEndereco(servicoResource.getEndereco());
+			servico.setMarca_produto(servicoResource.getMarca());
+			servico.setProduto(servicoResource.getProduto());
+			servico.setResponsavel(servicoResource.getResponsavel());
+			servico.setStatus(servicoResource.getStatus());
+			servico.setTelefone(servicoResource.getStatus());
+			servico.setTipo_produto(servico.getTipo_produto());
+			servico.setValor(service.converterValor(servicoResource.getValor()));
+			servicoRepository.saveAndFlush(servico);
+			
+		} catch (Exception e) {
+			LOG.error("Eero ao salvar serviço. \n"+e.getMessage(),e);
 		}
 	}
 }
