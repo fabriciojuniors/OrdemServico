@@ -4,6 +4,7 @@ import { LayoutsComponent } from '../layouts/layouts.component';
 import { ResponsaveisComponent } from '../responsaveis/responsaveis.component';
 import { InicioComponent } from '../inicio/inicio.component';
 import { ServicosComponent } from '../servicos/servicos.component';
+import { ConsultaServicosComponent } from "../consulta-servicos/consulta-servicos.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       {path: 'responsaveis', component: ResponsaveisComponent},
       {path: 'servicos', component: ServicosComponent},
+      {path: 'servicos/consulta', component: ConsultaServicosComponent},
       {path: 'index', component: InicioComponent}
     ]
   }

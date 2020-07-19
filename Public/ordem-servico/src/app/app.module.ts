@@ -10,6 +10,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ConsultaResponsaveisComponent } from './consulta-responsaveis/consulta-responsaveis.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServicosComponent } from './servicos/servicos.component';
+import { ConsultaServicosComponent } from './consulta-servicos/consulta-servicos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ServicosComponent } from './servicos/servicos.component';
     LayoutsComponent,
     InicioComponent,
     ConsultaResponsaveisComponent,
-    ServicosComponent
+    ServicosComponent,
+    ConsultaServicosComponent
   ],
   imports: [
     BrowserModule,

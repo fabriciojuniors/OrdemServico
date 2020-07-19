@@ -25,6 +25,9 @@ export class ServicosComponent implements OnInit {
     })
   }
 
+  limpar(){
+    window.location.reload();
+  }
   confirmar(){
     let id = (document.querySelector("#id") as HTMLInputElement).value;
     let cliente = (document.querySelector("#cliente") as HTMLInputElement).value;
@@ -60,10 +63,10 @@ export class ServicosComponent implements OnInit {
 
       return;
     };
-    let valorConvertido:Number = 0.00;
+    let valorConvertido:number = 0.00;
 
     try {
-      valorConvertido = parseFloat(valor).toFixed(2);
+      valorConvertido =  parseFloat(parseFloat(valor).toFixed(2));
     } catch (error) {
       alert("Erro ao converter valor.");
       return;

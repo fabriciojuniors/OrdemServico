@@ -1,0 +1,56 @@
+<app-menu-superior></app-menu-superior>
+
+<div class="container">
+    <h3 class="tittle-text">Consulta - Serviços</h3>
+
+    <div id="filtros">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">Responsável</label>
+                <select style="font-size: 12px;" id="responsavel" class="form-control">
+                    <option value="#">Selecione</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="">Status</label>
+                <select style="font-size: 12px;" id="status" class="form-control">
+                    <option value="1">Em aberto</option>
+                    <option value="2">Finalizado</option>
+                    <option value="3">Entregue</option>
+                    <option value="4">Cancelado</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="">Contratação</label>
+                <input type="date" name="" id="contratacao" class="form-control">
+            </div>
+        </div>
+
+    </div>
+    <button style="margin-top: 2%;" class="btn btn-success btn-confirmar">Filtrar</button>
+
+    <div style="margin-top: 8%;">
+        <hr style="width: 80%;">
+        <table class="table table-sm table-hover">
+            <thead>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Contratação</th>
+                <th>Responsável</th>
+                <th>Status</th>
+                <th>#</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let servico of servicos">
+                    <td>{{ servico.id }}</td>
+                    <td>{{ servico.cliente }}</td>
+                    <td>{{ servico.produto }}</td>
+                    <td>{{ servico.data_contratacao }}</td>
+                    <td>{{ servico.responsavel.nome }}</td>
+                    <td>{{ retonarStatus(servico.status) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
