@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-responsaveis',
   templateUrl: './responsaveis.component.html',
-  styleUrls: ['./responsaveis.component.css']
+  styleUrls: ['./responsaveis.component.css', '../app.component.css']
 })
 export class ResponsaveisComponent implements OnInit {
 
@@ -80,6 +80,14 @@ export class ResponsaveisComponent implements OnInit {
         console.log("Erro ao realizar comunicação com servidor. " + e);
       })
       
+  }
+
+  limpar(){
+    (document.querySelector("#id") as HTMLInputElement).value = '';
+    (document.querySelector("#nome") as HTMLInputElement).value = '';
+    (document.querySelector("#email") as HTMLInputElement).value = '';
+    (document.querySelector("#telefone") as HTMLInputElement).value = '';
+    (document.querySelector("#endereco") as HTMLInputElement).value = '';
   }
   ngOnInit(): void {
     

@@ -29,8 +29,10 @@
     "@fortawesome/pro-light-svg-icons": "^5.13.0",
     "@fortawesome/pro-regular-svg-icons": "^5.13.0",
     "@fortawesome/pro-solid-svg-icons": "^5.13.0",
+    "@types/jquery-mask-plugin": "^1.14.3",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
+    "jquery-mask-plugin": "^1.14.16",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

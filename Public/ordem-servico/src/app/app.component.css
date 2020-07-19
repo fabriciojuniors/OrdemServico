@@ -1,0 +1,19 @@
+.tittle-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-top: 1%;
+}
+
+.form-control {
+    height: 30px;
+}
+
+.btn-confirmar {
+    float: right;
+    border-radius: 0;
+    margin-left: 1%;
+}
+
+.preencher {
+    border-color: red;
+}

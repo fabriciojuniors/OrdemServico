@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutsComponent } from '../layouts/layouts.component';
 import { ResponsaveisComponent } from '../responsaveis/responsaveis.component';
 import { InicioComponent } from '../inicio/inicio.component';
+import { ServicosComponent } from '../servicos/servicos.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -11,7 +12,7 @@ const routes: Routes = [
     component: LayoutsComponent,
     children: [
       {path: 'responsaveis', component: ResponsaveisComponent},
-      {path: 'servicos', component: ResponsaveisComponent},
+      {path: 'servicos', component: ServicosComponent},
       {path: 'index', component: InicioComponent}
     ]
   }

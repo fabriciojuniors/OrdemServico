@@ -1,0 +1,98 @@
+<app-menu-superior></app-menu-superior>
+
+<div class="container">
+    <h3 class="tittle-text">Cadastro - Serviços</h3>
+
+    <div id="formulario">
+        <p>Dados do cliente</p>
+        <hr>
+        <div class="row">
+            <div class="col-md-1">
+                <label for="">ID</label>
+                <input type="text" readonly id="id" class="form-control">
+            </div>
+            <div class="col-md-11">
+                <label for="">Cliente</label>
+                <input type="text" class="form-control" id="cliente">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">E-mail</label>
+                <input type="text" class="form-control" id="email">
+            </div>
+            <div class="col-md-4">
+                <label for="">Endereço</label>
+                <input type="text" class="form-control" id="endereco">
+            </div>
+            <div class="col-md-4">
+                <label for="">Telefone</label>
+                <input type="text" class="form-control" id="telefone">
+            </div>
+        </div>
+
+        <p style="margin-top: 2%;">Dados do produto</p>
+        <hr>
+        <label for="">Produto</label>
+        <input type="text" class="form-control" id="produto">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Marca</label>
+                <input type="text" class="form-control" id="marca">
+            </div>
+            <div class="col-md-6">
+                <label for="">Tipo de produto</label>
+                <input type="text" class="form-control" id="tipo">
+            </div>
+        </div>
+
+        <p style="margin-top: 2%;">Dados do serviço</p>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Responsável</label>
+                <select style="font-size: 12px;" class="form-control" name="responsavel" id="responsavel">
+                <option value="#">Selecione</option>
+                <option *ngFor="let responsavel of responsaveis" value="{{responsavel.id}}">{{responsavel.nome}}</option>
+            </select>
+            </div>
+            <div class="col-md-6">
+                <label for="">Valor</label>
+                <input type="text" class="form-control" data-mask="000.000.000.000.000,00" data-mask-reverse="true" id="valor">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Contratação</label>
+                <input type="date" name="" id="contratacao" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="">Entrega</label>
+                <input type="date" name="" id="entrega" class="form-control">
+            </div>
+        </div>
+
+        <label for="" style="margin-right: 1%;">Status:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statusOpt" checked id="Aberto" value="1">
+            <label class="form-check-label" for="Aberto">
+        Em aberto
+      </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statusOpt" id="Finalizado" value="2">
+            <label class="form-check-label" for="Finalizado">
+        Finalizado
+      </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statusOpt" id="Entregue" value="3">
+            <label class="form-check-label" for="Entregue">
+                Entregue
+      </label>
+        </div>
+    </div>
+
+    <button class="btn btn-success btn-confirmar" (click)="confirmar()">Confirmar</button>
+    <button class="btn btn-primary btn-confirmar">Limpar</button>
+</div>

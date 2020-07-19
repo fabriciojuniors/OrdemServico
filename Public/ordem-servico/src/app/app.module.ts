@@ -9,6 +9,7 @@ import { LayoutsComponent } from './layouts/layouts.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ConsultaResponsaveisComponent } from './consulta-responsaveis/consulta-responsaveis.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ServicosComponent } from './servicos/servicos.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MenuSuperiorComponent,
     LayoutsComponent,
     InicioComponent,
-    ConsultaResponsaveisComponent
+    ConsultaResponsaveisComponent,
+    ServicosComponent
   ],
   imports: [
     BrowserModule,

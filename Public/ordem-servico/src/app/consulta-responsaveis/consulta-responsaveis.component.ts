@@ -9,7 +9,6 @@ export class ConsultaResponsaveisComponent implements OnInit {
 
   constructor() { }
   responsaveis = []
-  teste = "oi";
   ngOnInit(): void {
     fetch("http://localhost:8080/api/responsaveis",{
       headers: {'Content-type': 'application/json'}
@@ -55,6 +54,7 @@ export class ConsultaResponsaveisComponent implements OnInit {
       (document.querySelector("#email") as HTMLInputElement).value = responsavel.email;
       (document.querySelector("#telefone") as HTMLInputElement).value = responsavel.telefone;
       (document.querySelector("#endereco") as HTMLInputElement).value = responsavel.endereco;
+      (responsavel.sexo == "M") ? (document.querySelector("#Masculino") as HTMLInputElement).checked = true : (document.querySelector("#Feminino") as HTMLInputElement).checked= true
     }).catch((e)=>{
       console.log("Erro ao conectar com API. \n" + e);
     })
