@@ -49,6 +49,10 @@ export class ServicosComponent implements OnInit {
           (document.querySelector("#cliente") as HTMLInputElement).readOnly = true;
           (document.querySelector("#produto") as HTMLInputElement).readOnly = true;
           (document.querySelector("#contratacao") as HTMLInputElement).readOnly = true;
+          if(servico.status == '1') (document.querySelector("#Aberto") as HTMLInputElement).checked = true;
+          if(servico.status == '2') (document.querySelector("#Finalizado") as HTMLInputElement).checked = true;
+          if(servico.status == '3') (document.querySelector("#Entregue") as HTMLInputElement).checked = true;
+          if(servico.status == '4') (document.querySelector("#Cancelado") as HTMLInputElement).checked = true;
         }).catch((e)=>{
           console.log("Erro ao conectar com API. \n" + e);
         })
@@ -76,6 +80,7 @@ export class ServicosComponent implements OnInit {
     if((document.querySelector("#Aberto") as HTMLInputElement).checked) status = "1";
     if((document.querySelector("#Finalizado") as HTMLInputElement).checked) status = "2";
     if((document.querySelector("#Entregue") as HTMLInputElement).checked) status = "3";
+    if((document.querySelector("#Cancelado") as HTMLInputElement).checked) status = "4";
 
     if(!cliente || !email || !endereco || !telefone || !produto || !marca || !tipo || responsavel == '#' || !valor || !contratacao || !endereco){
       alert("Preencha todos os campos.");

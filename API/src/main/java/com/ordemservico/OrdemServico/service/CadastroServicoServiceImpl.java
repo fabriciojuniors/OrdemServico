@@ -44,7 +44,7 @@ public class CadastroServicoServiceImpl {
 			servico.setProduto(servicoResource.getProduto());
 			servico.setResponsavel(servicoResource.getResponsavel());
 			servico.setStatus(servicoResource.getStatus());
-			servico.setTelefone(servicoResource.getStatus());
+			servico.setTelefone(servicoResource.getTelefone());
 			servico.setTipo_produto(servico.getTipo_produto());
 			servico.setValor(service.converterValor(servicoResource.getValor()));
 			servicoRepository.saveAndFlush(servico);

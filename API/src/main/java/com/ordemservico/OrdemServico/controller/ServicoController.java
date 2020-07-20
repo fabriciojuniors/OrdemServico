@@ -1,5 +1,6 @@
 package com.ordemservico.OrdemServico.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,17 @@ public class ServicoController {
 	
 	@Autowired
 	private CadastroServicoServiceImpl serviceCadastro;
+
 	
 	@GetMapping("/servicos")
 	public List<Servico> buscar(){
 		return serviceBuscar.buscar();
+	}
+	
+	@GetMapping("/servicos/filtro/{responsavel}/{status}")
+	public List<Servico> buscarFiltro(@PathVariable(name = "responsavel", required = true)Long id, @PathVariable(name = "status", required = true)String status){
+		
+		return serviceBuscar.buscarFiltro(id, status);
 	}
 	
 	@GetMapping("/servico/{id}")

@@ -10,7 +10,21 @@ export class ConsultaServicosComponent implements OnInit {
 
   constructor() {  }
   servicos = [];
+  responsaveis = [];
   ngOnInit(): void {
+    fetch("http://localhost:8080/api/responsaveis",{
+      headers: {'Content-type': 'application/json'}
+    })
+    .then((response)=>{
+      return response.text();
+    }).then((text)=>{
+      let responsaveis = JSON.parse(text);
+      responsaveis.forEach(responsavel => {
+        this.responsaveis.push(responsavel);
+      });
+    }).catch((e)=>{
+      console.log("Erro ao conectar com API. \n" + e);
+    })
     fetch("http://localhost:8080/api/servicos")
     .then((response)=>{
       return response.text();

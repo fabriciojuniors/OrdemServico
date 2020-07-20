@@ -8,12 +8,14 @@
             <div class="col-md-4">
                 <label for="">Responsável</label>
                 <select style="font-size: 12px;" id="responsavel" class="form-control">
-          <option value="#">Selecione</option>
+          <option value="#">Todos</option>
+          <option *ngFor="let responsavel of responsaveis" value="{{responsavel.id}}">{{responsavel.nome}}</option>
         </select>
             </div>
             <div class="col-md-4">
                 <label for="">Status</label>
                 <select style="font-size: 12px;" id="status" class="form-control">
+                    <option value="#">Todos</option>
           <option value="1">Em aberto</option>
           <option value="2">Finalizado</option>
           <option value="3">Entregue</option>
