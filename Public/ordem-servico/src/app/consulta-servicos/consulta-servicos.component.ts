@@ -52,4 +52,22 @@ export class ConsultaServicosComponent implements OnInit {
 
     return "Cancelado";
   }
+
+  filtrar(){
+    let responsavel = (document.querySelector("#responsavel") as HTMLInputElement).value;
+    let status = (document.querySelector("#status") as HTMLInputElement).value;
+
+    fetch("http://localhost:8080/api/servicos/filtro/"+responsavel+"/"+status)
+    .then((response)=>{
+      return response.text();
+    }).then((text)=>{
+      this.servicos = [];
+      let servicos = JSON.parse(text);
+      servicos.forEach(servico => {
+        this.servicos.push(servico);
+      });
+    }).catch((e)=>{
+      console.log("Não foi possível conectar com a API. \n" + e);
+    })
+  }
 }

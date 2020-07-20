@@ -1,5 +1,6 @@
 package com.ordemservico.OrdemServico.service;
 
+
 import java.util.List;
 
 
@@ -28,6 +29,7 @@ public class BuscarServicoServiceImpl {
 	
 	public List<Servico> buscarFiltro(Long id, String status){
 		//Optional<Responsavel> responsavel = responsavelRepository.findById(id);
+		
 		List<Servico> listServico = servicoRepository.findByResponsavelEStatus(id, status);
 		return listServico;
 	}

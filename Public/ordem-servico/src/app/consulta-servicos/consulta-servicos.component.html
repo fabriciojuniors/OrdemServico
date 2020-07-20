@@ -5,14 +5,14 @@
 
     <div id="filtros">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="">Responsável</label>
                 <select style="font-size: 12px;" id="responsavel" class="form-control">
           <option value="#">Todos</option>
           <option *ngFor="let responsavel of responsaveis" value="{{responsavel.id}}">{{responsavel.nome}}</option>
         </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="">Status</label>
                 <select style="font-size: 12px;" id="status" class="form-control">
                     <option value="#">Todos</option>
@@ -22,14 +22,10 @@
           <option value="4">Cancelado</option>
         </select>
             </div>
-            <div class="col-md-4">
-                <label for="">Contratação</label>
-                <input type="date" name="" id="contratacao" class="form-control">
-            </div>
         </div>
 
     </div>
-    <button style="margin-top: 2%;" class="btn btn-success btn-confirmar">Filtrar</button>
+    <button style="margin-top: 2%;" (click)="filtrar()" class="btn btn-success btn-confirmar">Filtrar</button>
 
     <div style="margin-top: 8%;">
         <hr style="width: 80%;">
