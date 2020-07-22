@@ -56,8 +56,17 @@ export class ConsultaServicosComponent implements OnInit {
   filtrar(){
     let responsavel = (document.querySelector("#responsavel") as HTMLInputElement).value;
     let status = (document.querySelector("#status") as HTMLInputElement).value;
-
-    fetch("http://localhost:8080/api/servicos/filtro/"+responsavel+"/"+status)
+    let url = "";
+    if(status == "#" && responsavel == "#"){
+      url = "http://localhost:8080/api/servicos";
+    }else if(responsavel == "#" && status != "#"){
+      url = "http://localhost:8080/api/servicos/status/"+status;
+    }else if(status == "#" && responsavel != "#"){
+      url = "http://localhost:8080/api/servicos/responsavel/"+responsavel;
+    }else{
+      url = "http://localhost:8080/api/servicos/filtro/"+responsavel+"/"+status;
+    }
+    fetch(url)
     .then((response)=>{
       return response.text();
     }).then((text)=>{

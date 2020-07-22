@@ -56,11 +56,6 @@ public class Servico implements Serializable{
 		this.responsavel = responsavel;
 	}
 	
-	public String formatarData(LocalDate data) throws ParseException {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return formatter.format(data);	
-		
-	}
 	public String getCliente() {
 		return cliente;
 	}
@@ -103,14 +98,14 @@ public class Servico implements Serializable{
 	public void setMarca_produto(String marca_produto) {
 		this.marca_produto = marca_produto;
 	}
-	public String getData_contratacao() throws ParseException {
-		return formatarData(data_contratacao);
+	public LocalDate getData_contratacao() throws ParseException {
+		return data_contratacao;
 	}
 	public void setData_contratacao(LocalDate data_contratacao) {
 		this.data_contratacao = data_contratacao;
 	}
-	public String getData_entrega() throws ParseException {
-		return formatarData(data_entrega);
+	public LocalDate getData_entrega() throws ParseException {
+		return data_entrega;
 	}
 	public void setData_entrega(LocalDate data_entrega) {
 		this.data_entrega = data_entrega;

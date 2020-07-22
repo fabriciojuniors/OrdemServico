@@ -17,4 +17,10 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
 	
 	@Query(nativeQuery = true, value = "SELECT * FROM servico WHERE servico.responsavel_id=:responsavel AND servico.status=:statusFiltro")
 	List<Servico> findByResponsavelEStatus(@Param("responsavel")Long responsavel, @Param("statusFiltro")String status);
+	
+	@Query(nativeQuery = true, value = "SELECT * FROM servico WHERE servico.responsavel_id=:responsavel")
+	List<Servico> findByResponsavel(@Param("responsavel")Long id);
+	
+	@Query(nativeQuery = true, value = "SELECT * FROM servico WHERE servico.status=:status")
+	List<Servico> findByStatus(@Param("status")String status);
 }

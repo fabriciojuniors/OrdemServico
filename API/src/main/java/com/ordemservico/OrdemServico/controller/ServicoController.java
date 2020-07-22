@@ -3,6 +3,7 @@ package com.ordemservico.OrdemServico.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -44,10 +45,18 @@ public class ServicoController {
 	
 	@GetMapping("/servicos/filtro/{responsavel}/{status}")
 	public List<Servico> buscarFiltro(@PathVariable(name = "responsavel", required = true)Long id, @PathVariable(name = "status", required = true)String status){
-		
 		return serviceBuscar.buscarFiltro(id, status);
 	}
 	
+	@GetMapping("/servicos/responsavel/{responsavel}")
+	public List<Servico> buscarFiltro(@PathVariable(name = "responsavel", required = true)Long id){
+		return serviceBuscar.buscarFiltroResponsavel(id);
+	}
+	
+	@GetMapping("/servicos/status/{status}")
+	public List<Servico> buscarFiltro(@PathVariable(name = "status", required = true)String status){
+		return serviceBuscar.buscarFiltroStatus(status);
+	}
 	@GetMapping("/servico/{id}")
 	public Servico buscarPorID(@PathVariable(name = "id", required = true) Long id) throws ResponsavelNotFound, ServicoNotFound {
 		return serviceBuscarID.buscarPorId(id);
